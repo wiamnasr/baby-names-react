@@ -1,25 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+// Importing data
+import babyNames from "./babyNamesData.json";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+// Components
+import BabyNameCard from "./components/BabyNameCard";
+
+const App = () => {
+  const sortedBabyNames = babyNames.sort((a, b) =>
+    a.name > b.name ? 1 : b.name > a.name ? -1 : 0
   );
-}
+  return (
+    <>
+      <h1 style={{ width: "100%" }}>Baby Names App</h1>
+      {sortedBabyNames.map((baby) => (
+        <BabyNameCard
+          babyName={baby.name}
+          color={baby.sex === "m" ? "green" : "orange"}
+          onClick={() => console.log(baby.name)}
+        />
+      ))}
+    </>
+  );
+};
 
 export default App;
+
+// Important for sorting data in alphabetical order
+// const showsArr = getAllShows().sort((a, b) =>
+//   a.name > b.name ? 1 : b.name > a.name ? -1 : 0
+// );
