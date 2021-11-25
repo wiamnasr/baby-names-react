@@ -5,7 +5,7 @@ import { Wrapper } from "./BabyNameCard.styles";
 
 const BabyNameCard = ({ babyName, color, onClick }) => (
   <Wrapper onClick={onClick} style={{ backgroundColor: color }}>
-    <h3>{babyName}</h3>
+    <h3 className='babyNames'>{babyName}</h3>
   </Wrapper>
 );
 
