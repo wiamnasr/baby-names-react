@@ -10,13 +10,9 @@ const App = () => {
     a.name > b.name ? 1 : b.name > a.name ? -1 : 0
   );
 
-  const setSearchTerm = document.querySelector("input").value;
-
-
-
   return (
     <>
-      <SearchBar userSearchFunction={setSearchTerm} />
+      <SearchBar />
       <h1 style={{ width: "100%" }}>Baby Names App</h1>
       {sortedBabyNames.map((baby) => (
         <BabyNameCard
